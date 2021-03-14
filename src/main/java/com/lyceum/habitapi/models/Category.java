@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.data.annotation.Id;
 
 import java.time.Instant;
 
@@ -18,6 +19,7 @@ import java.time.Instant;
 public class Category {
 
     @Getter
+    @Id
     private long id;
 
     @Getter
