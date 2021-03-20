@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private final UserRepository userRepository;
 
-    @GetMapping("getByName/_{name}_")
+    @GetMapping("/{name}")
     public HttpEntity<Iterable<User>> getByUserName(@PathVariable("name") String name) {
         Iterable<User> usersByUserName = userRepository.findByUserName(name);
 
