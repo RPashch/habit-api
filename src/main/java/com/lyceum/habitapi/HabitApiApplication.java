@@ -39,30 +39,32 @@ public class HabitApiApplication {
 //				System.out.println(beanName);
 //			}
 
-            User user = User.builder()
-                    .userName("keksik")
-                    .firstName("Vitalik")
-                    .lastName("Fontanskiy")
-                    .build();
-
+//            User user = User.builder()
+//                    .userName("keksik new")
+//                    .firstName("Vitalik")
+//                    .lastName("Fontanskiy")
+//                    .build();
+//
+//            userRepository.save(user);
             Category category = Category.builder()
-                    .description("some desc")
-                    .title("title")
+                    .description("description new category")
+                    .title("sport")
+                    .isDefault(false)
                     .build();
 
 //            Long catId = categoryRepository.save(category)
 //                    .getId();
 
-            Category categoryPersisted = categoryRepository.save(category);
+            categoryRepository.save(category);
 
-            Habit habit = Habit.builder()
-                    .title("title")
-                    .categoryId(categoryPersisted.getId())
-                    .build();
-
-            User persistedUser = userRepository.save(user);
-
-            habitService.addHabit(habit, persistedUser);
+//            Habit habit = Habit.builder()
+//                    .title("title")
+//                    .categoryId(categoryPersisted.getId())
+//                    .build();
+//
+//            User persistedUser = userRepository.save(user);
+//
+//            habitService.addHabit(habit, persistedUser);
 
 //			User userFromDb = userRepository.findByUserName("test");
 
