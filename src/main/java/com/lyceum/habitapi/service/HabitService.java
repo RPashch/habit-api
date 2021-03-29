@@ -23,17 +23,16 @@ public class HabitService {
 
 
     @Transactional
-    public Habit addHabit(Habit habit, User user) {
+    public void addHabit(Habit habit, String idUser) {
         Habit persistedHabit = habitRepository.save(habit);
 
         jdbcTemplate.execute(
                 String.format("insert into user_habit values ('%s', '%s')",
-                        user.getId(),
+                        idUser,
                         persistedHabit.getId()
                 )
         );
 
-        return persistedHabit;
     }
 
 
