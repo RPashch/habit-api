@@ -16,7 +16,7 @@ public class HabitController {
     private final HabitService habitService;
 
     @PostMapping()
-    public ResponseEntity<Object> addHabit(@RequestBody Habit habit, @RequestParam String idUser) {
+    public ResponseEntity addHabit(@RequestBody Habit habit, @RequestParam String idUser) {
         habitService.addHabit(habit, idUser);
         return ResponseEntity.ok().build();
 
