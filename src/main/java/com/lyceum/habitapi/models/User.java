@@ -1,5 +1,6 @@
 package com.lyceum.habitapi.models;
 
+import com.lyceum.habitapi.dao.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -7,8 +8,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 
+import java.lang.reflect.Array;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,6 +23,9 @@ import java.util.List;
 @EqualsAndHashCode
 @Builder
 public class User {
+
+    @Autowired
+    UserRepository userRepository;
 
     @Getter
     @Id
@@ -51,6 +57,12 @@ public class User {
 
     public void addHabit(Habit habit) {
         habits.add(habit);
+    }
+
+    public List<Habit> getUserHabits (User user) {
+        List<Habit> persistedHabit = userRepository.getUserHabits(user.getId());
+
+        return persistedHabit;
     }
 
 }

@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -38,18 +39,8 @@ public class HabitService {
         return persistedHabit;
     }
 
-    @Transactional
-    public List<Habit> getUserHabits(User user){
-        List<Habit> persistedHabit = userRepository.getUserHabits(user.getId());
-
-
-        jdbcTemplate.execute(
-                String.format("select h.id,h.title, h.description from user_habit u, habit h where u.habit_id = h.id and u.user_id = '%s'",
-                        user.getId())
-        );
-        
-        return persistedHabit;
-
+    public ArrayList<Habit> getUserHabits(User user) {
+        return userRepository.getUserHabits(user.getId());
     }
 
 

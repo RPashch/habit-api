@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -16,6 +17,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
     List<User> findByUserName(@Param("userName") String userName);
 
     @Query("select h.id,h.title, h.description from user_habit u, habit h where u.habit_id = h.id and u.user_id =:userId")
-    List<Habit> getUserHabits(@Param("userId") long userId);
+    ArrayList<Habit> getUserHabits(@Param("userId") long userId);
 
 }
