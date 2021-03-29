@@ -18,23 +18,16 @@ public class HabitService {
     @Autowired
     private HabitRepository habitRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
-
     @Transactional
-    public Habit addHabit(Habit habit, User user) {
+    public void addHabit(Habit habit, String user_id) {
         Habit persistedHabit = habitRepository.save(habit);
 
         jdbcTemplate.execute(
                 String.format("insert into user_habit values ('%s', '%s')",
-                        user.getId(),
+                        user_id,
                         persistedHabit.getId()
                 )
         );
 
-        return persistedHabit;
     }
-
-
 }

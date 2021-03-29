@@ -62,8 +62,6 @@ public class HabitApiApplication {
 
             User persistedUser = userRepository.save(user);
 
-            habitService.addHabit(habit, persistedUser);
-
 //			User userFromDb = userRepository.findByUserName("test");
 
 
