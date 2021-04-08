@@ -8,17 +8,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-
-
     @Autowired
     private UserRepository userRepository;
 
-
-    public void addUser(User user) {
-        User persistedUser = userRepository.save(user);
-
+    public User addUser(User user) {
+        return userRepository.save(user);
     }
-
-
 }
-
