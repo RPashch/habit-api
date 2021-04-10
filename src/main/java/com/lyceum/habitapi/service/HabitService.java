@@ -9,6 +9,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.Instant;
+
 @Service
 public class HabitService {
 
@@ -24,6 +26,7 @@ public class HabitService {
 
     @Transactional
     public void addHabit(Habit habit, String idUser) {
+        habit.setCreatedAt(Instant.now());
         Habit persistedHabit = habitRepository.save(habit);
 
         jdbcTemplate.execute(
@@ -32,6 +35,7 @@ public class HabitService {
                         persistedHabit.getId()
                 )
         );
+
 
     }
 
