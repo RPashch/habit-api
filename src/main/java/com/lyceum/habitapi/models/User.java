@@ -24,7 +24,6 @@ import java.util.List;
 @Builder
 public class User {
 
-    @Autowired
     UserRepository userRepository;
 
     @Getter
@@ -63,10 +62,5 @@ public class User {
         habits.add(habit);
     }
 
-    public List<Habit> getUserHabits (User user) {
-        List<Habit> persistedHabit = userRepository.getUserHabits(user.getId());
-
-        return persistedHabit;
-    }
 
 }
