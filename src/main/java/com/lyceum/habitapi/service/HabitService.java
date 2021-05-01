@@ -39,8 +39,8 @@ public class HabitService {
         return persistedHabit;
     }
 
-    public ArrayList<Habit> getUserHabits(User user) {
-        return userRepository.getUserHabits(user.getId());
+    public ArrayList<Habit> getUserHabits(long userId) {
+        return userRepository.getUserHabits(userId);
     }
 
 
