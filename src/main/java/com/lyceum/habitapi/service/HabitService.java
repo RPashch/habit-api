@@ -1,5 +1,6 @@
 package com.lyceum.habitapi.service;
 
+import com.lyceum.habitapi.controllers.HabitController;
 import com.lyceum.habitapi.dao.HabitRepository;
 import com.lyceum.habitapi.dao.UserRepository;
 import com.lyceum.habitapi.models.Habit;
@@ -38,6 +39,11 @@ public class HabitService {
 
 
     }
+//    public Habit findByID(long habitId){
+//        return habitRepository.findByHabitId(habitId);
+//
+//
+//    }
 
 
 }

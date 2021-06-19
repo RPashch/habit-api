@@ -40,6 +40,7 @@ public class Habit {
     private Long categoryId;
 
     @Getter
+    @Setter
     private Instant createdAt;
 
 
