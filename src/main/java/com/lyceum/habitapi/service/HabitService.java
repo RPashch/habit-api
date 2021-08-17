@@ -4,6 +4,7 @@ import com.lyceum.habitapi.dao.HabitRepository;
 import com.lyceum.habitapi.dao.UserRepository;
 import com.lyceum.habitapi.models.Habit;
 import com.lyceum.habitapi.models.User;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -12,15 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.Instant;
 
 @Service
+@AllArgsConstructor
 public class HabitService {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    @Autowired
     private HabitRepository habitRepository;
-
-    @Autowired
     private UserRepository userRepository;
 
 

@@ -39,6 +39,7 @@ public class User {
     private LocalDate birthDate;
 
     @Getter
+    @Setter
     private Instant createdAt;
 
     @Getter

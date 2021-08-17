@@ -35,6 +35,7 @@ public class Category {
     private boolean isDefault;
 
     @Getter
+    @Setter
     private Instant createdAt;
 
 }
