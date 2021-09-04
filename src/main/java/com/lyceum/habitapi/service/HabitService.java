@@ -1,11 +1,9 @@
 package com.lyceum.habitapi.service;
 
 import com.lyceum.habitapi.dao.HabitRepository;
-import com.lyceum.habitapi.dao.UserRepository;
+import com.lyceum.habitapi.exceptions.HabitNotFoundException;
 import com.lyceum.habitapi.models.Habit;
-import com.lyceum.habitapi.models.User;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,8 +16,6 @@ public class HabitService {
 
     private JdbcTemplate jdbcTemplate;
     private HabitRepository habitRepository;
-    private UserRepository userRepository;
-
 
     @Transactional
     public void addHabit(Habit habit, String idUser) {
@@ -34,6 +30,13 @@ public class HabitService {
         );
 
 
+    }
+
+    public Habit findById(long habitId) {
+        return habitRepository
+                .findById(habitId)
+                .orElseThrow(() -> new HabitNotFoundException(
+                        "habit with id " + habitId + " not found!"));
     }
 
 
