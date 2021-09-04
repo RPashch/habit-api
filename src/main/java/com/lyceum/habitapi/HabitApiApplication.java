@@ -16,60 +16,60 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class HabitApiApplication {
 
-    @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private CategoryRepository categoryRepository;
-
-    @Autowired
-    private HabitService habitService;
+//    @Autowired
+//    private UserRepository userRepository;
+//
+//    @Autowired
+//    private CategoryRepository categoryRepository;
+//
+//    @Autowired
+//    private HabitService habitService;
 
     public static void main(String[] args) {
         SpringApplication.run(HabitApiApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-        return args -> {
-
-//			String[] beanNames = ctx.getBeanDefinitionNames();
-//			Arrays.sort(beanNames);
-//			for (String beanName : beanNames) {
-//				System.out.println(beanName);
-//			}
-
-//            User user = User.builder()
-//                    .userName("keksik new")
-//                    .firstName("Vitalik")
-//                    .lastName("Fontanskiy")
+//    @Bean
+//    public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+//        return args -> {
+//
+////			String[] beanNames = ctx.getBeanDefinitionNames();
+////			Arrays.sort(beanNames);
+////			for (String beanName : beanNames) {
+////				System.out.println(beanName);
+////			}
+//
+////            User user = User.builder()
+////                    .userName("keksik new")
+////                    .firstName("Vitalik")
+////                    .lastName("Fontanskiy")
+////                    .build();
+////
+////            userRepository.save(user);
+//            Category category = Category.builder()
+//                    .description("description new category")
+//                    .title("sport")
+//                    .isDefault(false)
 //                    .build();
 //
-//            userRepository.save(user);
-            Category category = Category.builder()
-                    .description("description new category")
-                    .title("sport")
-                    .isDefault(false)
-                    .build();
-
-//            Long catId = categoryRepository.save(category)
-//                    .getId();
-
-            categoryRepository.save(category);
-
-//            Habit habit = Habit.builder()
-//                    .title("title")
-//                    .categoryId(categoryPersisted.getId())
-//                    .build();
+////            Long catId = categoryRepository.save(category)
+////                    .getId();
 //
-//            User persistedUser = userRepository.save(user);
+//            categoryRepository.save(category);
 //
-//            habitService.addHabit(habit, persistedUser);
-
-//			User userFromDb = userRepository.findByUserName("test");
-
-
-        };
-    }
+////            Habit habit = Habit.builder()
+////                    .title("title")
+////                    .categoryId(categoryPersisted.getId())
+////                    .build();
+////
+////            User persistedUser = userRepository.save(user);
+////
+////            habitService.addHabit(habit, persistedUser);
+//
+////			User userFromDb = userRepository.findByUserName("test");
+//
+//
+//        };
+//    }
 
 }
