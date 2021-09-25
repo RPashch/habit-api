@@ -3,6 +3,7 @@ CREATE TABLE CATEGORY
     id          serial PRIMARY KEY,
     title       VARCHAR(250) NOT NULL,
     description VARCHAR(250),
+    hexCodeColor       CHAR(6),
     is_default  boolean,
     created_at  TIMESTAMP DEFAULT timezone('utc', CURRENT_TIMESTAMP)
 

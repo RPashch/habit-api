@@ -32,6 +32,10 @@ public class Category {
 
     @Getter
     @Setter
+    private String hexCodeColor;
+
+    @Getter
+    @Setter
     private boolean isDefault;
 
     @Getter
