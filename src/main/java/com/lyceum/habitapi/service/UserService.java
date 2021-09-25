@@ -18,4 +18,22 @@ public class UserService {
         user.setCreatedAt(Instant.now());
         return userRepository.save(user);
     }
+
+    public User updateUserData(User user, long id) {
+        Optional<User> persistedUserOpt = userRepository.findById(id);
+
+        if (persistedUserOpt.isEmpty()) {
+            throw UserNotFoundException(
+                    "user with id " + id + " not found"
+            )
+        }
+        User persistedUser = persistedUserOpt.get();
+
+        persistedUser.setFirstName(user.getFirstName());
+        persistedUser.setLastName(user.getLastName());
+        persistedUser.setUpdatedAt(Instant.now());
+        persistedUser.setBirthDate(user.getBirthDate());
+
+        return userRepository.save(persistedUser);
+    }
 }
