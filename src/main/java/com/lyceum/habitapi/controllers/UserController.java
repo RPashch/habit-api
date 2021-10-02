@@ -5,7 +5,6 @@ import com.lyceum.habitapi.dao.UserRepository;
 import com.lyceum.habitapi.models.User;
 import com.lyceum.habitapi.service.UserService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
