@@ -41,6 +41,9 @@ public class User {
     @Getter
     @Setter
     private Instant createdAt;
+    @Getter
+    @Setter
+    private Instant updatedAt;
 
     @Getter
     @Setter
