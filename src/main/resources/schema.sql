@@ -17,7 +17,7 @@ CREATE TABLE public.USER
     last_name  VARCHAR(250),
     birth_date DATE,
     created_at TIMESTAMP DEFAULT timezone('utc', CURRENT_TIMESTAMP),
-    updated_at TIMESTAMP DEFAULT timezone('utc', CURRENT_TIMESTAMP)
+    updated_at TIMESTAMP
 
 );
 

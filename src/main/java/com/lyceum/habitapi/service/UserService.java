@@ -1,12 +1,14 @@
 package com.lyceum.habitapi.service;
 
 import com.lyceum.habitapi.dao.UserRepository;
+import com.lyceum.habitapi.exceptions.UserNotFoundException;
 import com.lyceum.habitapi.models.User;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -23,9 +25,9 @@ public class UserService {
         Optional<User> persistedUserOpt = userRepository.findById(id);
 
         if (persistedUserOpt.isEmpty()) {
-            throw UserNotFoundException(
+            throw new UserNotFoundException(
                     "user with id " + id + " not found"
-            )
+            );
         }
         User persistedUser = persistedUserOpt.get();
 
