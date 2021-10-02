@@ -31,6 +31,15 @@ public class Category {
     private String description;
 
     @Getter
+    @Setter
+    private String hexCodeColor;
+
+    @Getter
+    @Setter
+    private boolean isDefault;
+
+    @Getter
+    @Setter
     private Instant createdAt;
 
 }

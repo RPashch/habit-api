@@ -1,42 +1,44 @@
 package com.lyceum.habitapi.service;
 
 import com.lyceum.habitapi.dao.HabitRepository;
-import com.lyceum.habitapi.dao.UserRepository;
+import com.lyceum.habitapi.exceptions.HabitNotFoundException;
 import com.lyceum.habitapi.models.Habit;
-import com.lyceum.habitapi.models.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.time.Instant;
 
 @Service
+@AllArgsConstructor
 public class HabitService {
 
-    @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    @Autowired
     private HabitRepository habitRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
-
     @Transactional
-    public Habit addHabit(Habit habit, User user) {
+    public void addHabit(Habit habit, String idUser) {
+        habit.setCreatedAt(Instant.now());
         Habit persistedHabit = habitRepository.save(habit);
 
         jdbcTemplate.execute(
                 String.format("insert into user_habit values ('%s', '%s')",
-                        user.getId(),
+                        idUser,
                         persistedHabit.getId()
                 )
         );
 
-        return persistedHabit;
+
+    }
+
+    public Habit findById(long habitId) {
+        return habitRepository
+                .findById(habitId)
+                .orElseThrow(() -> new HabitNotFoundException(
+                        "habit with id " + habitId + " not found!"));
     }
 
     public ArrayList<Habit> getUserHabits(long userId) {

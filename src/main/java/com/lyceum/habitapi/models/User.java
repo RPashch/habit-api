@@ -44,7 +44,11 @@ public class User {
     private LocalDate birthDate;
 
     @Getter
+    @Setter
     private Instant createdAt;
+    @Getter
+    @Setter
+    private Instant updatedAt;
 
     @Getter
     @Setter
