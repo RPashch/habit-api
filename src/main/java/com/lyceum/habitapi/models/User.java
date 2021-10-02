@@ -24,8 +24,6 @@ import java.util.List;
 @Builder
 public class User {
 
-    UserRepository userRepository;
-
     @Getter
     @Id
     private long id;
