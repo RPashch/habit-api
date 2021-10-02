@@ -2,6 +2,7 @@ package com.lyceum.habitapi.controllers;
 
 
 import com.lyceum.habitapi.dao.UserRepository;
+import com.lyceum.habitapi.models.Habit;
 import com.lyceum.habitapi.models.User;
 import com.lyceum.habitapi.service.UserService;
 import lombok.AllArgsConstructor;
@@ -35,6 +36,13 @@ public class UserController {
 
         userService.updateUserData(user, id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/habits/{userId}")
+    public HttpEntity<Iterable<Habit>> getUserHabits(@PathVariable("userId") long userId ) {
+        Iterable<Habit> userHabits = userRepository.getUserHabits(userId);
+
+        return ResponseEntity.ok(userHabits);
     }
 
 }
