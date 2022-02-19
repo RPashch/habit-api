@@ -19,7 +19,6 @@ import java.time.Instant;
 public class Category {
 
     @Getter
-    @Id
     private long id;
 
     @Getter

@@ -2,6 +2,7 @@ package com.lyceum.habitapi.controllers;
 
 import com.lyceum.habitapi.dao.CategoryRepository;
 import com.lyceum.habitapi.models.Category;
+import com.lyceum.habitapi.service.CategoryService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/category")
 public class CategoryController {
 
-    private final CategoryRepository categoryRepository;
+    private final CategoryService categoryService;
 
     @GetMapping("/all")
     public HttpEntity<Iterable<Category>> getAllCategories() {
 
-        Iterable<Category> categories = categoryRepository.findAll();
+        Iterable<Category> categories = categoryService.getCategories();
 
         return ResponseEntity.ok(categories);
 

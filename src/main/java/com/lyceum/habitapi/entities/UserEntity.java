@@ -1,38 +1,36 @@
-package com.lyceum.habitapi.models;
+package com.lyceum.habitapi.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.Instant;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Builder
-public class User {
+@Table(value = "public.user")
+public class UserEntity {
 
     @Getter
+    @Id
     private long id;
 
     @Getter
     @Setter
     private String userName;
+
     @Getter
     @Setter
     private String firstName;
+
     @Getter
     @Setter
     private String lastName;
+
     @Getter
     @Setter
     private LocalDate birthDate;
@@ -40,13 +38,5 @@ public class User {
     @Getter
     @Setter
     private Instant createdAt;
-
-    @Getter
-    @Setter
-    private List<Habit> habits = new ArrayList<>();
-
-    public void addHabit(Habit habit) {
-        habits.add(habit);
-    }
 
 }

@@ -1,12 +1,6 @@
-package com.lyceum.habitapi.models;
+package com.lyceum.habitapi.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.time.Instant;
@@ -17,9 +11,10 @@ import java.time.Instant;
 @ToString
 @EqualsAndHashCode
 @Builder
-public class Habit {
+public class HabitDto {
 
     @Getter
+    @Id
     private long id;
 
     @Getter
@@ -32,7 +27,7 @@ public class Habit {
 
     @Getter
     @Setter
-    private Category category;
+    private Long categoryId;
 
     @Getter
     @Setter

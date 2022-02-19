@@ -1,25 +1,21 @@
-package com.lyceum.habitapi.models;
+package com.lyceum.habitapi.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.Instant;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Builder
-public class Habit {
+@Table(value = "category")
+public class CategoryEntity {
 
     @Getter
+    @Id
     private long id;
 
     @Getter
@@ -32,11 +28,10 @@ public class Habit {
 
     @Getter
     @Setter
-    private Category category;
+    private boolean isDefault;
 
     @Getter
     @Setter
     private Instant createdAt;
-
 
 }

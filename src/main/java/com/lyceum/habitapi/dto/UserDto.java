@@ -1,12 +1,6 @@
-package com.lyceum.habitapi.models;
+package com.lyceum.habitapi.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.time.Instant;
@@ -19,9 +13,10 @@ import java.util.List;
 @ToString
 @EqualsAndHashCode
 @Builder
-public class User {
+public class UserDto {
 
     @Getter
+    @Id
     private long id;
 
     @Getter
@@ -33,20 +28,15 @@ public class User {
     @Getter
     @Setter
     private String lastName;
+
     @Getter
     @Setter
     private LocalDate birthDate;
 
+    public List<HabitDto> habitDtos;
+
     @Getter
     @Setter
     private Instant createdAt;
-
-    @Getter
-    @Setter
-    private List<Habit> habits = new ArrayList<>();
-
-    public void addHabit(Habit habit) {
-        habits.add(habit);
-    }
 
 }

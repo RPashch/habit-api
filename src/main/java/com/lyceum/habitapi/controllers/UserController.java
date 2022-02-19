@@ -2,6 +2,8 @@ package com.lyceum.habitapi.controllers;
 
 
 import com.lyceum.habitapi.dao.UserRepository;
+import com.lyceum.habitapi.dto.UserDto;
+import com.lyceum.habitapi.mappers.UserMapper;
 import com.lyceum.habitapi.models.User;
 import com.lyceum.habitapi.service.UserService;
 import lombok.AllArgsConstructor;
@@ -15,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v1/user")
@@ -25,9 +30,7 @@ public class UserController {
 
     @GetMapping("/{name}")
     public HttpEntity<Iterable<User>> getByUserName(@PathVariable("name") String name) {
-        Iterable<User> usersByUserName = userRepository.findByUserName(name);
-
-        return ResponseEntity.ok(usersByUserName);
+        return ResponseEntity.ok(userService.getUsersByName(name));
     }
 
     @PostMapping()
